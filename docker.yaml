@@ -1,0 +1,16 @@
+services:
+  mssql:
+    container_name: mssql_container
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    cap_add: [ 'SYS_PTRACE' ]
+    environment:
+      - "ACCEPT_EULA=1"
+      - "MSSQL_SA_PASSWORD=1qaz'Wsx"
+    ports:
+      - "1433:1433"
+    networks: [ "microservices" ]
+
+
+  networks:
+    microservices:
+      name: pgpara
